@@ -33,6 +33,8 @@ Gem::Specification.new do |s|
   s.test_files             = s.files.grep(%r{^(test|spec|features)/})
   s.version                = SensuPluginsSftp::Version::VER_STRING
 
+  s.add_runtime_dependency 'bcrypt_pbkdf', '~> 1.0'
+  s.add_runtime_dependency 'ed25519', '~> 1.2'
   s.add_runtime_dependency 'net-sftp', '3.0.0'
   s.add_runtime_dependency 'sensu-plugin', '~> 4.0'
 

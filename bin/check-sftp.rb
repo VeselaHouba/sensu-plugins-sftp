@@ -64,6 +64,13 @@ class CheckSftp < Sensu::Plugin::Check::CLI
          default: '',
          required: true
 
+  option :key,
+         short: '-k SSH_KEY',
+         long: '--key SSH_KEY',
+         description: 'Sftp key',
+         default: '',
+         required: false
+
   option :timeout,
          short: '-t TIMEOUT',
          long: '--timeout TIMEOUT',
@@ -148,9 +155,13 @@ class CheckSftp < Sensu::Plugin::Check::CLI
   end
 
   def sftp
+    # Wrap key into array if defined
+    key_data = config[:key].empty? ? [] : [config[:key]]
     @sftp ||= Net::SFTP.start(config[:host], config[:username], password: config[:password],
                                                                 timeout: config[:timeout],
                                                                 port: config[:port],
+                                                                key_data: key_data,
+                                                                keys: [],
                                                                 auth_methods: %w[publickey password])
   end
 end

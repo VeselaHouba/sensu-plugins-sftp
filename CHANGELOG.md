@@ -4,6 +4,11 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This CHANGELOG follows the format listed at [Keep A Changelog](http://keepachangelog.com/)
 
 ## [Unreleased]
+### Added
+- Option to pass ssh key as parameter + dependencies
+
+### Changed
+- Replaced centos6 with centos8
 
 ## [2.1.1] - 2020-06-25
 ### Changed
